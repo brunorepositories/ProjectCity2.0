@@ -1,0 +1,34 @@
+﻿@model ProjetoCidade.Models.Estado
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Estado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.pais.nomePais)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pais.nomePais)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nomeEstado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomeEstado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
