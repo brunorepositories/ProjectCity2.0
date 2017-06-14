@@ -27,12 +27,13 @@
 <div class="row" style="margin-left:50px;">
     <div class="col-sm-4" />
     <div class="col-sm-2" >
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#DetailsModal" href="@Url.Action("Edit", "Pais", new { id = Model.id })">
+    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#DetailsModal" href="@Url.Action("Edit", "Pais", new { id = Model.id })">
         <span class="glyphicon glyphicon-pencil"> Editar </span>
     </button>
     </div>
+
     <div class="col-sm-2" >
-         <a class="btn btn-default" href="@Url.Action("Index", "Pais")">  Voltar </a>
+        <a class="btn btn-default btn-sm"" href="@Url.Action("Index","Pais")"> Voltar </a>
     </div>
     <div class="col-sm-4" />
 </div>
@@ -49,3 +50,7 @@
 </div>
 
 
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

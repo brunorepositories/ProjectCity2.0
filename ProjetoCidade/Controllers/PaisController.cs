@@ -53,7 +53,7 @@ namespace ProjetoCidade.Controllers
             {
                 db.pais.Add(pais);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index"); ;
             }
 
             return View(pais);

@@ -2,33 +2,42 @@
 
 @{
     ViewBag.Title = "Cadastro de Pais";
-
 }
 
 <h2>@ViewBag.Title</h2>
 
-
 <style>
     .modal-body {
-        min-height: 500px;
+        min-height: 200px;
     }
 </style>
 
 
-<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" href="@Url.Action("Create", "Pais")">
-    <span class="glyphicon glyphicon-plus"></span> Novo
-</button>
 
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+
+<button type="button" class="btn btn-success " data-toggle="modal" data-target="#myModal" href="@Url.Action("Create","Pais")">
+    Novo 
+</button>
+<!-- Modal, Create -->
+<div class="modal fade" id="myModal"  role="dialog" >
     <div class="modal-dialog modal-lg modal-body ">
-        <!-- Modal content-->
         <div class="modal-content">
+           </div>
         </div>
     </div>
+
+
+
+
+
+<!-- Modal Edit, Details, Delete -->
+<div id="PaisModal" class="modal fade" role="dialog" >
+    <div class="modal-dialog modal-lg modal-body">
+        <div class="modal-content">
+       </div> 
+    </div> 
 </div>
-
-
+<!-- Fim do model --->
 
 <table class="table">
     <tr>
@@ -39,9 +48,8 @@
             @Html.DisplayNameFor(model => model.sigla)
         </th>
     </tr>
-
     @foreach (var item in Model)
-            {
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.nome)
@@ -51,17 +59,23 @@
             </td>
 
             <td>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" href="@Url.Action("Edit", "Pais", new { id = item.id })">
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#PaisModal" href="@Url.Action("Edit", "Pais", new { id = item.id })">
                     <span class="glyphicon glyphicon-pencil"></span>
                 </button>
-                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal" href="@Url.Action("Details", "Pais", new { id = item.id })">
+                |
+                <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#PaisModal" href="@Url.Action("Details", "Pais", new { id = item.id })">
                     <span class="glyphicon glyphicon-info-sign"></span>
                 </button>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" href="@Url.Action("Delete", "Pais", new { id = item.id })">
+                |
+                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#PaisModal" href="@Url.Action("Delete", "Pais", new { id = item.id })">
                     <span class="glyphicon glyphicon-trash"></span>
                 </button>
+                
             </td>
         </tr>
     }
-
 </table>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

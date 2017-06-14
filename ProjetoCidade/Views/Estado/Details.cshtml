@@ -2,7 +2,7 @@
 
 
 @{
-    ViewBag.Title = "Detahes";
+    ViewBag.Title = "Detahes do Cadastro";
     Layout = null;
 }
 
@@ -11,7 +11,8 @@
 </div>
 
 <div>
-    <div class="dl-horizontal">
+
+    <div class="form-horizontal">
         <div class="row" style="margin-left:50px;">
             <h3>
                 @Html.DisplayNameFor(model => model.nome)
@@ -30,12 +31,12 @@
 <div class="row" style="margin-left:50px;">
     <div class="col-sm-4" />
     <div class="col-sm-2">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#DetailsModal" href="@Url.Action("Edit", "Estado", new { id = Model.id })">
+        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#DetailsModal" href="@Url.Action("Edit", "Estado", new { id = Model.id })">
             <span class="glyphicon glyphicon-pencil"> Editar </span>
         </button>
     </div>
     <div class="col-sm-2">
-        <a class="btn btn-default" href="@Url.Action("Index", "Estado")">  Voltar </a>
+        <a class="btn btn-default btn-sm" href="@Url.Action("Index","Estado")"> Fechar </a>
     </div>
     <div class="col-sm-4" />
 </div>

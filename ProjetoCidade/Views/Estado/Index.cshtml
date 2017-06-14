@@ -8,30 +8,37 @@
 
 <style>
     .modal-body {
-        min-height: 500px;
+        min-height: 400px;
     }
 </style>
 
 
-<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" href="@Url.Action("Create", "Estado")">
-    <span class="glyphicon glyphicon-plus"></span> Novo
+
+<button type="button" class="btn btn-success " data-toggle="modal" data-target="#myModal" href="@Url.Action("Create","Estado")">
+    Novo 
 </button>
-
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<!-- Modal, Create -->
+<div class="modal fade" id="myModal" role="dialog" >
     <div class="modal-dialog modal-lg modal-body ">
-
-        <!-- Modal content-->
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
         </div>
     </div>
 </div>
 
-<table class="table">
 
+
+
+
+<!-- Modal Edit, Details, Delete -->
+<div id="EstadoModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg modal-body ">
+        <div class="modal-content">
+          </div>
+     </div>
+ </div>
+<!-- Fim do model --->
+
+<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.nome)
@@ -40,7 +47,6 @@
             @Html.DisplayNameFor(model => model.pais.nome)
         </th>
     </tr>
-
     @foreach (var item in Model)
     {
         <tr>
@@ -52,13 +58,15 @@
             </td>
 
             <td>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" href="@Url.Action("Edit", "Estado", new { id = item.id })">
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#EstadoModal" href="@Url.Action("Edit", "Estado", new { id = item.id })">
                     <span class="glyphicon glyphicon-pencil"></span>
                 </button>
-                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal" href="@Url.Action("Details", "Estado", new { id = item.id })">
+                |
+                <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#EstadoModal" href="@Url.Action("Details", "Estado", new { id = item.id })">
                     <span class="glyphicon glyphicon-info-sign"></span>
                 </button>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" href="@Url.Action("Delete", "Estado", new { id = item.id })">
+                |
+                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#EstadoModal" href="@Url.Action("Delete", "Estado", new { id = item.id })">
                     <span class="glyphicon glyphicon-trash"></span>
                 </button>
             </td>

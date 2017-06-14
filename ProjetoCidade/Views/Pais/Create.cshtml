@@ -5,6 +5,8 @@
     Layout = null;
 }
 
+
+
 <div class="row" style="margin-left:50px">
     <h1>@ViewBag.Title</h1>
 </div>
@@ -34,16 +36,17 @@
             </div>
         </div>
     </div>
+
     <div class="col-lg-4"/>
     <div class="col-lg-2">
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Salvar" class="btn btn-success" />
+                <input type="submit" value="Salvar" class="btn btn-success btn-sm" />
             </div>
         </div>
     </div>
     <div class="col-lg-2">
-        <a class="btn btn-default" href="@Url.Action("Index", "Pais")">  Voltar </a>
+        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" data-target="#myModal" >Close</button>
     </div>
     <div class="col-lg-4" />
     <br />
@@ -54,6 +57,6 @@
 
 
 
-        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-        <script src="~/Scripts/jquery.validate.min.js"></script>
-        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

@@ -4,6 +4,11 @@
     ViewBag.Title = "Novo Estado";
     Layout = null;
 }
+<style>
+    .modal-body {
+       min-height: 400px;
+    }
+</style>
 
 <div class="row" style="margin-left:50px">
     <h1>@ViewBag.Title</h1>
@@ -31,40 +36,38 @@
                 <div class="col-md-10">
                     @Html.DropDownList("pais_id", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.pais_id, "", new { @class = "text-danger" })
-                    <div class="col-md-2">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#CreateModal" href="@Url.Action("Create", "Pais")">
-                            <span class="glyphicon glyphicon-plus"></span> Novo
-                        </button>
-                    </div>
+                    
                 </div>
             </div>
             <div class="col-lg-4" />
             <div class="col-lg-2">
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Salvar" class="btn btn-success" />
+                        <input type="submit" value="Salvar" class="btn btn-success btn-sm" />
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2">
-                <a class="btn btn-default" href="@Url.Action("Index", "Estado")">  Voltar </a>
+            <div class="col-md-2">
+                      <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+                </div>
             </div>
-            <div class="col-lg-4" />
-            <br />
-            <br />
-            <br />
-        </div>
+            <div class="col-lg-4">
+
+
+                <div class="col-lg-3" />
+            </div>
+        <br />
+        <br />
+        <br />
    
 }
 
-<!-- Modal -->
+<!-- Modal if button -->
 <div id="CreateModal" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg modal-body ">
+    <div class="modal-dialog modal-body">
         <!-- Modal content-->
         <div class="modal-content">
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+           
         </div>
     </div>
 </div>
