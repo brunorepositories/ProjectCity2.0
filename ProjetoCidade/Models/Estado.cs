@@ -11,13 +11,14 @@ namespace ProjetoCidade.Models
     {
 
         [Display(Name = "Estado:")]
-        public string nomeEstado { get; set; }
+        [Required(ErrorMessage = "Estado inválido!")]
+        [StringLength(20, ErrorMessage = "Descrição do Estado muito longa!")]
+        public string nome { get; set; }
 
-        
+        [Display(Name = "Pais:")]
         public int pais_id { get; set; }
 
         [ForeignKey("pais_id")]
         public virtual Pais pais { get; set; }
-
     }
 }

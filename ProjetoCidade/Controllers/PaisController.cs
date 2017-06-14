@@ -47,7 +47,7 @@ namespace ProjetoCidade.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,nomePais")] Pais pais)
+        public ActionResult Create([Bind(Include = "id,nome,sigla")] Pais pais)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace ProjetoCidade.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,nomePais")] Pais pais)
+        public ActionResult Edit([Bind(Include = "id,nome,sigla")] Pais pais)
         {
             if (ModelState.IsValid)
             {

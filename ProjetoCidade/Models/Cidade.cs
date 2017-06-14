@@ -10,8 +10,11 @@ namespace ProjetoCidade.Models
     public class Cidade : AbstractEntity
     {
         [Display(Name = "Cidade:")]
-        public string nomeCidade { get; set; }
+        [Required(ErrorMessage = "Cidade inválida!")]
+        [StringLength(20, ErrorMessage = "Descrição do Cidade muito longa!")]
+        public string nome { get; set; }
 
+        [Display(Name = "Estado:")]
         public int estado_id { get; set; }
 
         [ForeignKey("estado_id")]

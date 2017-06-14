@@ -40,7 +40,7 @@ namespace ProjetoCidade.Controllers
         // GET: Estado/Create
         public ActionResult Create()
         {
-            ViewBag.pais_id = new SelectList(db.pais, "id", "nomePais");
+            ViewBag.pais_id = new SelectList(db.pais, "id", "nome");
             return View();
         }
 
@@ -49,7 +49,7 @@ namespace ProjetoCidade.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,nomeEstado,pais_id")] Estado estado)
+        public ActionResult Create([Bind(Include = "id,nome,pais_id")] Estado estado)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +58,7 @@ namespace ProjetoCidade.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.pais_id = new SelectList(db.pais, "id", "nomePais", estado.pais_id);
+            ViewBag.pais_id = new SelectList(db.pais,"id", "nome", estado.pais_id);
             return View(estado);
         }
 
@@ -74,7 +74,7 @@ namespace ProjetoCidade.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.pais_id = new SelectList(db.pais, "id", "nomePais", estado.pais_id);
+            ViewBag.pais_id = new SelectList(db.pais, "id", "nome", estado.pais_id);
             return View(estado);
         }
 
@@ -83,7 +83,7 @@ namespace ProjetoCidade.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,nomeEstado,pais_id")] Estado estado)
+        public ActionResult Edit([Bind(Include = "id,nome,pais_id")] Estado estado)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace ProjetoCidade.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.pais_id = new SelectList(db.pais, "id", "nomePais", estado.pais_id);
+            ViewBag.pais_id = new SelectList(db.pais, "id", "nome", estado.pais_id);
             return View(estado);
         }
 

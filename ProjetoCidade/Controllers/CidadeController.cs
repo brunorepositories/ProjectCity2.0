@@ -40,7 +40,7 @@ namespace ProjetoCidade.Controllers
         // GET: Cidade/Create
         public ActionResult Create()
         {
-            ViewBag.estado_id = new SelectList(db.estado, "id", "nomeEstado");
+            ViewBag.estado_id = new SelectList(db.estado, "id", "nome");
             return View();
         }
 
@@ -49,7 +49,7 @@ namespace ProjetoCidade.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,nomeCidade,estado_id")] Cidade cidade)
+        public ActionResult Create([Bind(Include = "id,nome,estado_id")] Cidade cidade)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +58,7 @@ namespace ProjetoCidade.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.estado_id = new SelectList(db.estado, "id", "nomeEstado", cidade.estado_id);
+            ViewBag.estado_id = new SelectList(db.estado, "id", "nome", cidade.estado_id);
             return View(cidade);
         }
 
@@ -74,7 +74,7 @@ namespace ProjetoCidade.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.estado_id = new SelectList(db.estado, "id", "nomeEstado", cidade.estado_id);
+            ViewBag.estado_id = new SelectList(db.estado, "id", "nome", cidade.estado_id);
             return View(cidade);
         }
 
@@ -83,7 +83,7 @@ namespace ProjetoCidade.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,nomeCidade,estado_id")] Cidade cidade)
+        public ActionResult Edit([Bind(Include = "id,nome,estado_id")] Cidade cidade)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace ProjetoCidade.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.estado_id = new SelectList(db.estado, "id", "nomeEstado", cidade.estado_id);
+            ViewBag.estado_id = new SelectList(db.estado, "id", "nome", cidade.estado_id);
             return View(cidade);
         }
 

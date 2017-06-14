@@ -10,7 +10,11 @@ namespace ProjetoCidade.Data
     public class DataContext : DbContext
     {
         public DataContext() : base("DataContext") 
-        { }
+        {
+
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<DataContext>());
+
+        }
 
 
         public DbSet<Pais> pais { get; set; }

@@ -1,26 +1,54 @@
 ﻿@model ProjetoCidade.Models.Pais
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detahes";
+    Layout = null;
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>Pais</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nomePais)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.nomePais)
-        </dd>
-
-    </dl>
+<div class="row" style="margin-left:50px;">
+    <h1>@ViewBag.Title </h1>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+    <div class="row" style="margin-left:50px;">
+        <h3>
+            @Html.DisplayNameFor(model => model.nome)
+            @Html.DisplayFor(model => model.nome)
+        </h3>
+    </div>
+    <div class="row" style="margin-left:50px;">
+        <h3>
+            @Html.DisplayNameFor(model => model.sigla)
+            @Html.DisplayFor(model => model.sigla)
+        </h3>
+    </div>
+
+    <br />
+
+<div class="row" style="margin-left:50px;">
+    <div class="col-sm-4" />
+    <div class="col-sm-2" >
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#DetailsModal" href="@Url.Action("Edit", "Pais", new { id = Model.id })">
+        <span class="glyphicon glyphicon-pencil"> Editar </span>
+    </button>
+    </div>
+    <div class="col-sm-2" >
+         <a class="btn btn-default" href="@Url.Action("Index", "Pais")">  Voltar </a>
+    </div>
+    <div class="col-sm-4" />
+</div>
+
+<br/>
+
+    <!-- Modal -->
+    <div id="DetailsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog ">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

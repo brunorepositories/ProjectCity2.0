@@ -1,33 +1,69 @@
 ﻿@model IEnumerable<ProjetoCidade.Models.Pais>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Cadastro de Pais";
+
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
+<style>
+    .modal-body {
+        min-height: 500px;
+    }
+</style>
+
+
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" href="@Url.Action("Create", "Pais")" >
+    <span class="glyphicon glyphicon-plus"></span> Novo
+</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg modal-body ">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+        </div>
+     </div>
+   </div>
+   
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.nomePais)
+            @Html.DisplayNameFor(model => model.nome)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.sigla)
+        </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nomePais)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sigla)
+            </td>
+
+            <td>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" href="@Url.Action("Edit", "Pais", new { id = item.id })">
+                    <span class="glyphicon glyphicon-pencil"></span> 
+                </button>
+                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal" href="@Url.Action("Details", "Pais", new { id = item.id })">
+                    <span class="glyphicon glyphicon-info-sign"></span>
+                </button>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" href="@Url.Action("Delete", "Pais", new { id = item.id })">
+                    <span class="glyphicon glyphicon-trash"></span> 
+                </button>
+            </td>
+        </tr>
+    }
 
 </table>
