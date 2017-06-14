@@ -1,19 +1,21 @@
 ﻿@model ProjetoCidade.Models.Estado
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Novo Estado";
+    Layout = null;
 }
 
-<h2>Create</h2>
+<div class="row" style="margin-left:50px">
+    <h1>@ViewBag.Title</h1>
+</div>
 
+<br />
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Estado</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.nome, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -22,25 +24,49 @@
                 @Html.ValidationMessageFor(model => model.nome, "", new { @class = "text-danger" })
             </div>
         </div>
+       
+            <div class="form-group row">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.pais_id, "pais_id", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("pais_id", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.pais_id, "", new { @class = "text-danger" })
+                @Html.LabelFor(model => model.pais_id, "Pais:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("pais_id", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.pais_id, "", new { @class = "text-danger" })
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#CreateModal" href="@Url.Action("Create", "Pais")">
+                            <span class="glyphicon glyphicon-plus"></span> Novo
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="col-lg-4" />
+            <div class="col-lg-2">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Salvar" class="btn btn-success" />
+                    </div>
+                </div>
             </div>
+            <div class="col-lg-2">
+                <a class="btn btn-default" href="@Url.Action("Index", "Estado")">  Voltar </a>
+            </div>
+            <div class="col-lg-4" />
+            <br />
+            <br />
+            <br />
         </div>
-    </div>
+   
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<!-- Modal -->
+<div id="CreateModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg modal-body ">
+        <!-- Modal content-->
+        <div class="modal-content">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </div>
 </div>
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>

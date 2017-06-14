@@ -1,19 +1,21 @@
 ﻿@model ProjetoCidade.Models.Estado
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar";
+    Layout = null;
 }
 
-<h2>Edit</h2>
+<div class="row" style="margin-left:50px;">
+    <h1>@ViewBag.Title</h1>
+</div>
 
+<br />
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Estado</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.id)
 
@@ -33,18 +35,25 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+        <div class="col-lg-4" />
+        <div class="col-lg-2">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Salvar" class="btn btn-success" />
+                </div>
             </div>
         </div>
+        <div class="col-lg-2">
+            <a class="btn btn-default" href="@Url.Action("Index", "Estado")">  Voltar </a>
+        </div>
+        <div class="col-lg-4" />
+
     </div>
+    <br />
+    <br />
+    <br />
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

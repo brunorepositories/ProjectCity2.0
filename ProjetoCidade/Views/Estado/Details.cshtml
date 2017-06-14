@@ -1,34 +1,52 @@
 ﻿@model ProjetoCidade.Models.Estado
 
+
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detahes";
+    Layout = null;
 }
 
-<h2>Details</h2>
+<div class="row" style="margin-left:50px;">
+    <h1>@ViewBag.Title </h1>
+</div>
 
 <div>
-    <h4>Estado</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.pais.nome)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.pais.nome)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.nome)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.nome)
-        </dd>
-
-    </dl>
+    <div class="dl-horizontal">
+        <div class="row" style="margin-left:50px;">
+            <h3>
+                @Html.DisplayNameFor(model => model.nome)
+                @Html.DisplayFor(model => model.nome)
+            </h3>
+        </div>
+        <div class="row" style="margin-left:50px;">
+            <h3>
+                @Html.DisplayNameFor(model => model.pais.nome)
+                @Html.DisplayFor(model => model.pais.nome) - @Html.DisplayFor(model => model.pais.sigla)
+            </h3>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="row" style="margin-left:50px;">
+    <div class="col-sm-4" />
+    <div class="col-sm-2">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#DetailsModal" href="@Url.Action("Edit", "Estado", new { id = Model.id })">
+            <span class="glyphicon glyphicon-pencil"> Editar </span>
+        </button>
+    </div>
+    <div class="col-sm-2">
+        <a class="btn btn-default" href="@Url.Action("Index", "Estado")">  Voltar </a>
+    </div>
+    <div class="col-sm-4" />
+</div>
+
+<br />
+
+<!-- Modal -->
+<div id="DetailsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog ">
+        <!-- Modal content-->
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
