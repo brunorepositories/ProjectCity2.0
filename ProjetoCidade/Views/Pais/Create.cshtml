@@ -2,10 +2,7 @@
 
 @{
     ViewBag.Title = "Novo Pais";
-    Layout = null;
 }
-
-
 
 <div class="row" style="margin-left:50px">
     <h1>@ViewBag.Title</h1>
@@ -37,25 +34,21 @@
         </div>
     </div>
 
-    <div class="col-lg-4"/>
-    <div class="col-lg-2">
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Salvar" class="btn btn-success btn-sm" />
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-2">
-        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" data-target="#myModal" >Close</button>
-    </div>
-    <div class="col-lg-4" />
-    <br />
+   <div class="row">
+           <div class="col-lg-1">
+               <div class="form-group">
+                   <div class="col-md-offset-2 col-md-10">
+                       <input type="submit" value="Salvar" class="btn btn-success btn-sm" />
+                   </div>
+               </div>
+           </div>
+           <div class="col-lg-2">
+               <a class="btn btn-default btn-sm"  @Html.ActionLink("Voltar","Index")
+           </div>
+       </div>
     <br />
     <br />
 }
-
-
-
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>

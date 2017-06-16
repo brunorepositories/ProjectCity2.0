@@ -4,32 +4,14 @@
     ViewBag.Title = "Cadastro de Pais";
 }
 
-<h2>@ViewBag.Title</h2>
+<h1>@ViewBag.Title</h1>
 
 <style>
     .modal-body {
         min-height: 200px;
     }
 </style>
-
-
-
-
-<button type="button" class="btn btn-success " data-toggle="modal" data-target="#myModal" href="@Url.Action("Create","Pais")">
-    Novo 
-</button>
-<!-- Modal, Create -->
-<div class="modal fade" id="myModal"  role="dialog" >
-    <div class="modal-dialog modal-lg modal-body ">
-        <div class="modal-content">
-           </div>
-        </div>
-    </div>
-
-
-
-
-
+ 
 <!-- Modal Edit, Details, Delete -->
 <div id="PaisModal" class="modal fade" role="dialog" >
     <div class="modal-dialog modal-lg modal-body">
@@ -42,10 +24,21 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.nome)
+           <h4>
+              <b>
+                @Html.DisplayNameFor(model => model.nome)
+              </b>
+            </h4>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.sigla)
+            <h4>
+                <b>
+                    @Html.DisplayNameFor(model => model.sigla)
+                </b>
+            </h4>
+        </th>
+        <th>
+            <a class="btn btn-success" @Html.ActionLink("Novo", "Create")</a>
         </th>
     </tr>
     @foreach (var item in Model)
