@@ -12,10 +12,6 @@
     }
 </style>
 
-
-<button type="button" class="btn btn-success " data-toggle="modal" data-target="#myModal" href="@Url.Action("Create","Cidade")">
-    Novo
-</button>
 <!-- Modal, Create -->
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg modal-body ">
@@ -41,6 +37,11 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.estado.nome)
+        </th>
+        <th>
+            <button type="button" class="btn btn-success " data-toggle="modal" data-target="#myModal" href="@Url.Action("Create","Cidade")">
+                Novo
+            </button>
         </th>
     </tr>
 

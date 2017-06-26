@@ -37,9 +37,9 @@ namespace ProjetoCidade.Controllers
         }
 
         // GET: Pais/Create
-        public ActionResult Create()
+        public Action Create()
         {
-            return View();
+             View();
         }
 
         // POST: Pais/Create
@@ -47,16 +47,15 @@ namespace ProjetoCidade.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,nome,sigla")] Pais pais)
+        public Action Create([Bind(Include = "id,nome,sigla")] Pais pais)
         {
             if (ModelState.IsValid)
             {
                 db.pais.Add(pais);
-                db.SaveChanges();
-                return RedirectToAction("Index"); ;
+                db.SaveChanges(); 
             }
 
-            return View(pais);
+             View(pais);
         }
 
         // GET: Pais/Edit/5

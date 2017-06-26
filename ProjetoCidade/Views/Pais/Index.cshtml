@@ -11,6 +11,14 @@
         min-height: 200px;
     }
 </style>
+
+<!-- Modal, Create -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg modal-body ">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
  
 <!-- Modal Edit, Details, Delete -->
 <div id="PaisModal" class="modal fade" role="dialog" >
@@ -38,7 +46,9 @@
             </h4>
         </th>
         <th>
-            <a class="btn btn-success" @Html.ActionLink("Novo", "Create")</a>
+            <button type="button" class="btn btn-success " data-toggle="modal" data-target="#myModal" href="@Url.Action("Create","Pais")">
+                Novo
+            </button>
         </th>
     </tr>
     @foreach (var item in Model)
